@@ -31,15 +31,17 @@ reports for CI and human approval.
 ```mermaid
 flowchart LR
     D[Versioned datasets] --> E[Eval Ground Truth Lab]
-    X[Workflow adapters] --> E
-    R[Agent Runtime Grid\noptional execution] -. optional local path .-> X
+    G[gdev-agent\nreference workload] --> X[Workflow adapter]
+    X --> E
+    R[Agent Runtime Grid\noptional failure proof] -. optional local path .-> E
     E --> P[Evidence pack\ngates, cost, latency, failures]
     P --> H[Human review\nand release decision]
     W[AI Workflow Playbook\ngovernance companion] -. contracts and receipts .-> E
 ```
 
-Solid edges are reproduced local paths. Dashed edges are optional relationships,
-not claims that a production platform or deployment exists.
+The gdev-to-Eval path has a reproduced local same-image run with a published
+content-addressed failure report. Dashed edges are optional relationships, not
+claims that a production platform, customer deployment, or production SLO exists.
 
 ## Selected systems
 
@@ -47,6 +49,7 @@ not claims that a production platform or deployment exists.
 |---|---|---|---|
 | [Eval Ground Truth Lab](https://github.com/ashishki/Eval-Ground-Truth-Lab) | Regression evaluation and release gates | [Evidence index](https://github.com/ashishki/Eval-Ground-Truth-Lab/blob/main/docs/EVIDENCE_INDEX.md) | Local; synthetic or curated datasets |
 | [Agent Runtime Grid](https://github.com/ashishki/Agent-Runtime-Grid) | Queue-backed execution with PostgreSQL lifecycle state, Redis Streams delivery, bounded retries, artifacts, and failure injection | [Evidence index](https://github.com/ashishki/Agent-Runtime-Grid/blob/main/docs/EVIDENCE_INDEX.md) | Local reliability experiments |
+| [gdev-agent](https://github.com/ashishki/gdev-agent) | Governed support-workflow reference workload with approval, audit, cost controls, and PostgreSQL RLS | [Canonical Eval result](https://github.com/ashishki/Eval-Ground-Truth-Lab/blob/main/docs/EVIDENCE_INDEX.md) | Local reference workload; canonical quality gate currently fails |
 | [AI Workflow Playbook](https://github.com/ashishki/AI_workflow_playbook) | Independent governance and verification companion | [Guarantee maturity](https://github.com/ashishki/AI_workflow_playbook#guarantee-maturity) | Mechanisms tested; adoption impact unproven |
 
 ## Engineering evidence
@@ -59,6 +62,8 @@ not claims that a production platform or deployment exists.
   bounded retries, cancellation, timeouts, and artifact integrity checks.
 - Human review and evidence indexes that separate local demonstrations, planned
   work, and external validation.
+- PostgreSQL owner/application-role separation with FORCE RLS and a clean-Compose
+  cross-tenant denial proof for the reference workload.
 
 ## Applied work
 
@@ -71,12 +76,12 @@ not claims that a production platform or deployment exists.
 
 ## Current focus
 
-- Execute and publish a harder labeled regression challenge for Eval Ground Truth
-  Lab.
-- Build a one-command reviewer demo with pinned component versions and
-  content-addressed evidence.
-- Validate one independently owned workflow adapter and one narrowly scoped
-  financial-policy workload without inventing adoption evidence.
+- Publish the verified one-command reviewer umbrella after its remote repository
+  and release surface are available.
+- Complete the history-preserving Trader Risk Audit extraction without publishing
+  source data whose redistribution rights are unclear.
+- Validate one independently owned workflow adapter and structured external
+  feedback without inventing users, outcomes, or adoption evidence.
 
 ## Background
 
