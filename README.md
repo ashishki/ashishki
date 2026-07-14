@@ -10,7 +10,7 @@ observable.
 Incoming MS in Financial Technology and Analytics at UT Dallas, Fall 2026.
 
 **Start here:** [Eval Ground Truth Lab](https://github.com/ashishki/Eval-Ground-Truth-Lab) ·
-[5-minute reviewer path](https://github.com/ashishki/Eval-Ground-Truth-Lab#5-minute-reviewer-path) ·
+[runnable reviewer demo](https://github.com/ashishki/ai-workflow-reliability-lab) ·
 [v0.2.1 evidence](https://github.com/ashishki/Eval-Ground-Truth-Lab/tree/v0.2.1/docs/evidence/releases/v0.2.1) ·
 [known limits](https://github.com/ashishki/Eval-Ground-Truth-Lab/blob/main/docs/KNOWN_LIMITS.md)
 
@@ -43,10 +43,13 @@ flowchart LR
     W[AI Workflow Playbook\ngovernance companion] -. contracts and receipts .-> E
 ```
 
-The gdev and sanitized Trader-to-Eval paths are reproduced local integrations;
-the reusable Action has a synthetic CI wiring proof. Dashed edges are optional
-relationships, not claims that a production platform, customer deployment, or
-production SLO exists.
+The published
+[reviewer umbrella](https://github.com/ashishki/ai-workflow-reliability-lab)
+provides the clean-checkout path across the locked Eval, gdev, and optional
+Runtime components. The gdev and sanitized Trader-to-Eval paths are reproduced
+local integrations; the reusable Action has a synthetic CI wiring proof. Dashed
+edges are optional relationships, not claims that a production platform,
+customer deployment, or production SLO exists.
 
 ## Selected systems
 
@@ -70,6 +73,10 @@ production SLO exists.
   work, and external validation.
 - PostgreSQL owner/application-role separation with FORCE RLS and a clean-Compose
   cross-tenant denial proof for the reference workload.
+- A published
+  [one-command reviewer umbrella](https://github.com/ashishki/ai-workflow-reliability-lab)
+  with exact component locks, tamper-checked evidence, readable previews, and an
+  explicit pending-human-decision boundary.
 
 ## Applied work
 
@@ -86,12 +93,12 @@ production SLO exists.
 
 ## Current focus
 
-- Publish the verified one-command reviewer umbrella and standalone Trader v0.2
-  candidate when repository-administration access is available.
+- Publish the verified standalone Trader v0.2 candidate when repository-creation
+  access is available.
 - Validate one independently owned workflow adapter and collect two consented,
   structured feedback records.
-- Turn real external feedback into one bounded maintenance release and reviewed
-  regression test without inventing users, outcomes, or adoption evidence.
+- Record one real independent umbrella review, then turn attributable external
+  feedback into a bounded maintenance release and regression test.
 
 ## Background
 
