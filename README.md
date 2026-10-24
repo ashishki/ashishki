@@ -1,116 +1,77 @@
 # Artem Shishkin
 
-**AI Systems Engineer focused on evaluation, reliability, and governed execution
-for LLM workflows.**
+**Applied AI Engineer | Python, LLM applications, and workflow automation**
 
-I build AI backend systems where model and harness changes are evaluated, risky
-actions are controlled or reviewed, and cost, latency, and failure behavior remain
-observable.
+I build AI tools for people working with documents, knowledge, and recurring
+decisions. My projects combine Python backends, retrieval, external integrations,
+and human review.
 
-Incoming MS in Financial Technology and Analytics at UT Dallas, Fall 2026.
+I start with the existing workflow: what takes time, where mistakes matter, and
+which decisions should stay with a person. Then I build and evaluate a focused
+solution, using deterministic code and language models where each fits.
 
-**Start here:** [Eval Ground Truth Lab](https://github.com/ashishki/Eval-Ground-Truth-Lab) ·
-[runnable reviewer demo](https://github.com/ashishki/ai-workflow-reliability-lab) ·
-[v0.2.1 evidence](https://github.com/ashishki/Eval-Ground-Truth-Lab/tree/v0.2.1/docs/evidence/releases/v0.2.1) ·
-[known limits](https://github.com/ashishki/Eval-Ground-Truth-Lab/blob/main/docs/KNOWN_LIMITS.md)
+Based in Tbilisi, Georgia. Open to remote Applied AI Engineering and AI Solutions
+Engineering roles.
 
-## Flagship: regression evaluation for LLM workflows
+## Selected projects
 
-[Eval Ground Truth Lab](https://github.com/ashishki/Eval-Ground-Truth-Lab) helps an
-AI engineer decide whether a model, prompt, tool, policy, or harness change is safe
-to release. It runs versioned datasets against baseline and candidate systems,
-applies deterministic quality, cost, and latency gates, and produces reviewable
-reports for CI and human approval.
+| Project | Who it helps and what I built | Current stage |
+|---|---|---|
+| [gdev-agent](https://github.com/ashishki/gdev-agent) | Python/FastAPI backend for player-support triage, with signed webhooks, human approval, tenant isolation, and audit trails | Local reference implementation; conformance passes, harder challenge gate fails |
+| [Telegram Personal AI Assistant](https://github.com/ashishki/telegram-research-agent) | Source-backed research, briefs, monitoring, and confirmed actions in one Telegram conversation, with durable state | Implemented prototype; connected-account pilot and daily operation unconfirmed |
+| [Dream Motif Interpreter](https://github.com/ashishki/Dream_Motif_Interpreter) | A practitioner's dream-archive workflow: Google Docs ingestion, search, voice input, notes, and reviewed motif suggestions | Single-operator prototype; public evidence uses synthetic records |
+| [AI Workflow Playbook](https://github.com/ashishki/AI_workflow_playbook) | My delivery method for developers and workflow owners: frame the problem, choose a change, implement, verify, and hand over | Public reference material; Product/Desktop tools in private evaluation preview |
+| [Eval Ground Truth Lab](https://github.com/ashishki/Eval-Ground-Truth-Lab) | Python CLI for comparing model, prompt, tool, and policy changes against versioned cases and quality, cost, and latency gates | Released local alpha |
+| [Agent Runtime Grid](https://github.com/ashishki/Agent-Runtime-Grid) | Experimental Python job runtime with PostgreSQL state, Redis queues, retries, cancellation, and reproducible failure tests | Local runtime experiments |
 
-> **Current maturity:** released open-source alpha (`v0.2.1`) with local,
-> synthetic, or curated evidence. v0.2.1 is an internal correctness/security
-> release, not external-feedback maintenance evidence. It does not establish
-> production traffic, customer adoption, or a production SLO.
+**[Run a regression-and-fix demo](https://github.com/ashishki/ai-workflow-reliability-lab)**:
+follow an approval-policy regression through detection and a passing fix, then
+inspect the reports and remaining human decision.
 
-## System map
+## Current work
 
-```mermaid
-flowchart LR
-    D[Versioned datasets] --> E[Eval Ground Truth Lab]
-    G[gdev-agent\nreference workload] --> X[Workload adapters]
-    T[Trader Risk Audit\nfinancial case] --> X
-    X --> E
-    C[Caller CI] --> Q[Reusable release gate Action]
-    Q --> E
-    R[Agent Runtime Grid\noptional failure proof] -. optional local path .-> E
-    E --> P[Evidence pack\ngates, cost, latency, failures]
-    P --> H[Human review\nand release decision]
-    W[AI Workflow Playbook\ngovernance companion] -. contracts and receipts .-> E
-```
+- **[Georgia Community Navigator](case-studies/georgia-community-navigator.md)** —
+  Telegram topic guides and source-backed assistance for administrative tasks in
+  Georgia. Guide/navigation and opt-in AI work are implemented on the development branch,
+  with bounded S1 semantic acceptance recorded; live testing and release remain
+  unperformed. The delivery
+  order is useful guides and onboarding, paid assistance, then the specialist
+  foundation. Private source repository.
+- **[English Teacher Assistant](case-studies/english-teacher-assistant.md)** —
+  discovery and technical design with an English teacher: reuse teaching
+  materials, prepare faithful homework previews, revise by text or voice, and
+  publish after teacher approval. Booking and administration form a parallel
+  workflow. Application implementation and real-account integrations have not
+  started. Private source repository.
 
-The published
-[reviewer umbrella](https://github.com/ashishki/ai-workflow-reliability-lab)
-provides the clean-checkout path across the locked Eval, gdev, and optional
-Runtime components. The gdev and sanitized Trader-to-Eval paths are reproduced
-local integrations; the reusable Action has a synthetic CI wiring proof. Dashed
-edges are optional relationships, not claims that a production platform,
-customer deployment, or production SLO exists.
+## Engineering strengths
 
-## Selected systems
+- Python services and integrations: FastAPI, PostgreSQL, Redis, Telegram, and
+  document workflows.
+- Retrieval and source handling: ingestion, hybrid search, versioned annotations,
+  provenance, and human review.
+- Evaluation and debugging: regression cases, deterministic checks, failure
+  analysis, and explicit quality, cost, and latency boundaries.
+- Workflow discovery: translate a domain expert's working process into a focused
+  implementation and a reviewable result.
 
-| System | Role | Best evidence | Maturity |
-|---|---|---|---|
-| [Eval Ground Truth Lab](https://github.com/ashishki/Eval-Ground-Truth-Lab) | Regression evaluation and reusable CI release gates | [v0.2.1 exact-gate evidence](https://github.com/ashishki/Eval-Ground-Truth-Lab/tree/v0.2.1/docs/evidence/releases/v0.2.1) | Released alpha; local, synthetic, or curated evidence |
-| [Agent Runtime Grid](https://github.com/ashishki/Agent-Runtime-Grid) | Queue-backed execution with PostgreSQL lifecycle state, Redis Streams delivery, bounded retries, artifacts, and failure injection | [Evidence index](https://github.com/ashishki/Agent-Runtime-Grid/blob/main/docs/EVIDENCE_INDEX.md) | Local reliability experiments |
-| [gdev-agent](https://github.com/ashishki/gdev-agent) | Governed support-workflow reference workload with approval, audit, cost controls, and PostgreSQL RLS | [Canonical Eval result](https://github.com/ashishki/Eval-Ground-Truth-Lab/blob/main/docs/EVIDENCE_INDEX.md) | Local reference workload; canonical quality gate currently fails |
-| [AI Workflow Playbook](https://github.com/ashishki/AI_workflow_playbook) | Independent governance and verification companion | [Guarantee maturity](https://github.com/ashishki/AI_workflow_playbook#guarantee-maturity) | Mechanisms tested; adoption impact unproven |
-
-## Engineering evidence
-
-- Versioned datasets and deterministic validators for reproducible regression
-  gates.
-- Baseline/candidate comparison with explicit quality, cost, and latency
-  thresholds, plus a least-privilege
-  [reusable Action v0.1.0](https://github.com/ashishki/Eval-Ground-Truth-Lab/blob/action-v0.1.0/docs/GITHUB_ACTION.md).
-- PostgreSQL-authoritative job lifecycle state with Redis Streams delivery,
-  bounded retries, cancellation, timeouts, and artifact integrity checks.
-- Human review and evidence indexes that separate local demonstrations, planned
-  work, and external validation.
-- PostgreSQL owner/application-role separation with FORCE RLS and a clean-Compose
-  cross-tenant denial proof for the reference workload.
-- A published
-  [one-command reviewer umbrella](https://github.com/ashishki/ai-workflow-reliability-lab)
-  with exact component locks, tamper-checked evidence, readable previews, and an
-  explicit pending-human-decision boundary.
-
-## Applied work
-
-- [Trader Risk Audit](https://github.com/ashishki/entropy_protocol/tree/master/products/trader-risk-audit)
-  applies deterministic post-trade policy checks to local or public-data examples.
-  A history-preserving, path-purged standalone v0.2 candidate is verified locally,
-  and Eval consumes its sanitized evidence through a documented
-  [adapter contract](https://github.com/ashishki/Eval-Ground-Truth-Lab/blob/main/docs/TRADER_RISK_AUDIT_ADAPTER.md).
-  The separate remote repository is not yet published. This is a case study, not
-  a live trading system or financial advice.
-- [Telegram Research Agent](https://github.com/ashishki/telegram-research-agent)
-  is a single-user research pipeline for source provenance, temporal threads,
-  feedback, and bounded read-only assistance.
-
-## Current focus
-
-- Publish the verified standalone Trader v0.2 candidate when repository-creation
-  access is available.
-- Validate one independently owned workflow adapter and collect two consented,
-  structured feedback records.
-- Record one real independent umbrella review, then turn attributable external
-  feedback into a bounded maintenance release and regression test.
+For a deterministic case, see
+[Trader Risk Audit](https://github.com/ashishki/trader-risk-audit): trade CSVs,
+explicit rules, and traceable reports in a local Python CLI.
+[Workflow-to-Agent Studio](https://github.com/ashishki/workflow-to-agent-studio)
+shows the earlier design step, from SOPs and interviews to reviewable
+implementation blueprints.
 
 ## Background
 
-Before AI engineering, I worked as an international technical educator for
-Schwarzkopf Professional. I bring that training discipline to design reviews,
-technical writing, and cross-functional communication without treating it as a
-substitute for engineering evidence.
-
-I begin the MS in Financial Technology and Analytics at UT Dallas in Fall 2026,
-with a growing focus on reliable AI systems for financial and document workflows.
+Before software engineering, I worked as an international technical educator at
+Schwarzkopf Professional. That experience shapes how I clarify requirements,
+explain technical choices, and collaborate with domain experts.
 
 ## Contact
 
 [LinkedIn](https://www.linkedin.com/in/ashishki/) ·
 [GitHub](https://github.com/ashishki)
+
+_Project stages reviewed on 24 October 2026; each repository retains its detailed
+evidence and limitations._
